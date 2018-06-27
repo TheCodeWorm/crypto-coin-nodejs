@@ -1,1 +1,1 @@
-# nodejs-crypto-coin
+# crypto-coin-nodejs
