@@ -27,7 +27,12 @@ class Blockchain {
   }
 
   newTransaction() { 
-    /* Store a new transaction */ 
+    this.confirmed_transactions.push({
+      sender: sender,
+      receiver: receiver,
+      amt: amt
+    });
+    return this.lastBlock()['index']++;
   }
 
   hash(block) { 
