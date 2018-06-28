@@ -1,11 +1,12 @@
 
 class Blockchain {
   constructor () {
-    // Create chain and transaction
-    this.chain = [];
-    this.current_transactions = [];
 
-    // Binding of this
+    // Chain and Transactions
+    this.chain = [];
+    this.confirmed_transactions = [];
+
+    // Bindings
     this.newBlock = this.newBlock.bind(this);
     this.newTransaction = this.newTransaction.bind(this);
     this.lastBlock = this.lastBlock.bind(this);
@@ -13,7 +14,16 @@ class Blockchain {
   }
 
   newBlock() { 
-    /* Create the new block */ 
+    const block = {
+      timeStamp: new Date(),
+      count: this.chain.length++,
+      transactions: this.confirmed_transactions,
+      proof: proof,
+      prevHash: prevHash
+    };
+    this.confirmed_transactions = [];
+    this.chain.push(block);
+    return block;
   }
 
   newTransaction() { 
