@@ -35,8 +35,13 @@ class Blockchain {
     return this.lastBlock()['index']++;
   }
 
-  hash(block) { 
-    /* hash the block */ 
+  hash (block) {
+    const blockString = JSON.stringify(block)
+    const hash = crypto.createHmac(process.env.HASH_TYPE, process.env.CRYPTO_SECRET)
+    .update(blockString)
+    .digest('hex')
+
+    return hash
   }
 
   lastBlock() { 
