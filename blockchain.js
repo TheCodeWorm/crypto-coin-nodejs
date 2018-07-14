@@ -51,6 +51,18 @@ class Blockchain {
     return guessHash.substr(0, 5) === process.env.RESOLUTION_HASH
   }
 
+  proofOfWork (lastProof) {
+    let proof = 0
+    while (true) {
+      if (!this.validProof(lastProof, proof)) {
+        proof++
+      } else {
+        break
+      }
+    }
+    return proof
+  }
+
   lastBlock () {
     return this.chain.slice(-1)[0]
   }
