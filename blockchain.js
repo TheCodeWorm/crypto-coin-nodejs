@@ -66,6 +66,11 @@ class Blockchain {
   lastBlock () {
     return this.chain.slice(-1)[0]
   }
+
+  registerNode (address) {
+    this.nodes.push(address)
+    return this.nodes
+  }
 }
 
 module.exports = Blockchain;
